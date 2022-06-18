@@ -1,0 +1,343 @@
+{
+	"info": {
+		"_postman_id": "2bcd985b-1c4a-45f8-bbda-b1c110563fae",
+		"name": "Trello API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20919680"
+	},
+	"item": [
+		{
+			"name": "Create A Board",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"TOMIWA\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.trello.com/1/boards/?key={{key}}&token={{token}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"trello",
+						"com"
+					],
+					"path": [
+						"1",
+						"boards",
+						""
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "{name}",
+							"disabled": true
+						},
+						{
+							"key": "key",
+							"value": "{{key}}"
+						},
+						{
+							"key": "token",
+							"value": "{{token}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get A Board",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Body matches Board Name\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"TOMIWA\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.trello.com/1/boards/629f176dc37ec111aa324099?key=ab02d14354f73c44401da02b2b39082d&token=c07228f1f2e3546467dc1dc0162997896607df25070284bbb1d3609807df5657",
+					"protocol": "https",
+					"host": [
+						"api",
+						"trello",
+						"com"
+					],
+					"path": [
+						"1",
+						"boards",
+						"629f176dc37ec111aa324099"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "ab02d14354f73c44401da02b2b39082d"
+						},
+						{
+							"key": "token",
+							"value": "c07228f1f2e3546467dc1dc0162997896607df25070284bbb1d3609807df5657"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modify A Board",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"TOMIWA2.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.trello.com/1/boards/629f176dc37ec111aa324099?key={{key}}&token={{token}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"trello",
+						"com"
+					],
+					"path": [
+						"1",
+						"boards",
+						"629f176dc37ec111aa324099"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{key}}"
+						},
+						{
+							"key": "token",
+							"value": "{{token}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create A List",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"BOB\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.trello.com/1/boards/629f176dc37ec111aa324099/lists?key=ab02d14354f73c44401da02b2b39082d&token=c07228f1f2e3546467dc1dc0162997896607df25070284bbb1d3609807df5657",
+					"protocol": "https",
+					"host": [
+						"api",
+						"trello",
+						"com"
+					],
+					"path": [
+						"1",
+						"boards",
+						"629f176dc37ec111aa324099",
+						"lists"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "{name}",
+							"disabled": true
+						},
+						{
+							"key": "key",
+							"value": "ab02d14354f73c44401da02b2b39082d"
+						},
+						{
+							"key": "token",
+							"value": "c07228f1f2e3546467dc1dc0162997896607df25070284bbb1d3609807df5657"
+						},
+						{
+							"key": "idList",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create A Card",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"BOB2.0\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.trello.com/1/cards?idList=629f1ecbe6a63305d7f3a928&key=ab02d14354f73c44401da02b2b39082d&token=c07228f1f2e3546467dc1dc0162997896607df25070284bbb1d3609807df5657",
+					"protocol": "https",
+					"host": [
+						"api",
+						"trello",
+						"com"
+					],
+					"path": [
+						"1",
+						"cards"
+					],
+					"query": [
+						{
+							"key": "idList",
+							"value": "629f1ecbe6a63305d7f3a928"
+						},
+						{
+							"key": "key",
+							"value": "ab02d14354f73c44401da02b2b39082d"
+						},
+						{
+							"key": "token",
+							"value": "c07228f1f2e3546467dc1dc0162997896607df25070284bbb1d3609807df5657"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get A Card",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.trello.com/1/cards/62a0c16e36acba687e8fc27d?key=ab02d14354f73c44401da02b2b39082d&token=c07228f1f2e3546467dc1dc0162997896607df25070284bbb1d3609807df5657",
+					"protocol": "https",
+					"host": [
+						"api",
+						"trello",
+						"com"
+					],
+					"path": [
+						"1",
+						"cards",
+						"62a0c16e36acba687e8fc27d"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "ab02d14354f73c44401da02b2b39082d"
+						},
+						{
+							"key": "token",
+							"value": "c07228f1f2e3546467dc1dc0162997896607df25070284bbb1d3609807df5657"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modify A Card",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"BOBtheBuilder\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.trello.com/1/cards/62a0c16e36acba687e8fc27d?key=ab02d14354f73c44401da02b2b39082d&token=c07228f1f2e3546467dc1dc0162997896607df25070284bbb1d3609807df5657",
+					"protocol": "https",
+					"host": [
+						"api",
+						"trello",
+						"com"
+					],
+					"path": [
+						"1",
+						"cards",
+						"62a0c16e36acba687e8fc27d"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "ab02d14354f73c44401da02b2b39082d"
+						},
+						{
+							"key": "token",
+							"value": "c07228f1f2e3546467dc1dc0162997896607df25070284bbb1d3609807df5657"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete A Card",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://api.trello.com/1/cards/629f2080c448fd6060c257e2?key=ab02d14354f73c44401da02b2b39082d&token=c07228f1f2e3546467dc1dc0162997896607df25070284bbb1d3609807df5657",
+					"protocol": "https",
+					"host": [
+						"api",
+						"trello",
+						"com"
+					],
+					"path": [
+						"1",
+						"cards",
+						"629f2080c448fd6060c257e2"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "ab02d14354f73c44401da02b2b39082d"
+						},
+						{
+							"key": "token",
+							"value": "c07228f1f2e3546467dc1dc0162997896607df25070284bbb1d3609807df5657"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
